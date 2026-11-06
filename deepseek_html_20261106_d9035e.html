@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ঘরের বাজার — খাঁটি দেশি খাবার</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        🛒 <span>ঘরের বাজার</span>
+      </div>
+      <div class="header-actions">
+        <a href="tel:01700000000" class="call-btn">📞 কল করুন</a>
+        <button class="cart-btn" onclick="toggleCart()">
+          🛍️ কার্ট <span id="cartCount" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>খাঁটি দেশি খাবার, ঘরে পৌঁছে দেওয়া হয়</h1>
+      <p>মধু, ঘি, চাল, ডাল, তেল — সরাসরি গ্রাম থেকে আপনার রান্নাঘরে</p>
+      <button class="cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+        এখনই কিনুন →
+      </button>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature"><div class="ico">🚚</div><h4>ফ্রি ডেলিভারি</h4><p>৳১০০০+ অর্ডারে</p></div>
+    <div class="feature"><div class="ico">✅</div><h4>১০০% খাঁটি</h4><p>সরাসরি গ্রাম থেকে</p></div>
+    <div class="feature"><div class="ico">💰</div><h4>ক্যাশ অন ডেলিভারি</h4><p>হাতে পেয়ে টাকা দিন</p></div>
+    <div class="feature"><div class="ico">📞</div><h4>২৪/৭ সাপোর্ট</h4><p>যেকোনো সময় কল</p></div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products-section">
+    <h2>আমাদের পণ্যসমূহ</h2>
+    <div id="productGrid" class="grid"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>🛒 ঘরের বাজার</h3>
+        <p>খাঁটি দেশি খাবারের বিশ্বস্ত ঠিকানা</p>
+      </div>
+      <div>
+        <h4>যোগাযোগ</h4>
+        <p>📞 01700-000000</p>
+        <p>✉️ info@ghorerbazar.demo</p>
+        <p>📍 ঢাকা, বাংলাদেশ</p>
+      </div>
+      <div>
+        <h4>সেবা</h4>
+        <p>ডেলিভারি পলিসি</p>
+        <p>রিটার্ন পলিসি</p>
+        <p>প্রাইভেসি পলিসি</p>
+      </div>
+    </div>
+    <div class="copy">© 2026 ঘরের বাজার ডেমো — All rights reserved</div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div id="cartOverlay" class="overlay" onclick="toggleCart()"></div>
+  <aside id="cartPanel" class="cart-panel">
+    <div class="cart-head">
+      <h2>🛍️ আপনার কার্ট</h2>
+      <button class="x" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="row"><span>সাবটোটাল</span><span>৳<b id="subtotal">0</b></span></div>
+      <div class="row"><span>ডেলিভারি</span><span id="delivery">৳60</span></div>
+      <div class="row total"><span>সর্বমোট</span><span>৳<b id="cartTotal">0</b></span></div>
+    </div>
+    <form id="orderForm">
+      <input id="name" placeholder="আপনার নাম *" required />
+      <input id="phone" placeholder="মোবাইল: 01XXXXXXXXX *" required maxlength="11" />
+      <textarea id="address" placeholder="সম্পূর্ণ ঠিকানা *" required></textarea>
+      <button type="submit" class="order-submit">✅ অর্ডার কনফার্ম করুন</button>
+    </form>
+  </aside>
+
+  <!-- CONFIRMATION MODAL -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-box">
+      <div class="checkmark">✅</div>
+      <h2>অর্ডার সফল হয়েছে!</h2>
+      <pre id="confirmText"></pre>
+      <button onclick="closeModal()">ঠিক আছে</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">কার্টে যোগ হয়েছে ✅</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
